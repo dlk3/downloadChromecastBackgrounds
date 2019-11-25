@@ -14,8 +14,8 @@ the name of the artist/photographer.
 
 ## delDupes
 
-This Python script will delete duplicate files from within a snigle directory.
-It compares the MD5 hashes of the files to identify duplicates.
+This Python script will delete duplicate files.  It compares the MD5 hashes of
+the files to identify duplicates.
 
 Usage:
 
