@@ -19,5 +19,5 @@ It compares the MD5 hashes of the files to identify duplicates.
 
 Usage:
 
-  `delDupes` - list duplicate files<br />
-  `delDupes -d` - delete duplicate files
+  `delDupes /path/to/files` - list duplicate files<br />
+  `delDupes -d /path/to/files` - delete duplicate files
