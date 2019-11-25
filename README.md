@@ -1,4 +1,4 @@
-# Dwnload Chromecast Home Bacground Images
+# Download Chromecast Home Background Images
 
 ## Tampermonkey.js
 
@@ -19,5 +19,5 @@ It compares the MD5 hashes of the files to identify duplicates.
 
 Usage:
 
-  `delDupes` - list duplicate files
+  `delDupes` - list duplicate files<br />
   `delDupes -d` - delete duplicate files
