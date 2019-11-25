@@ -1,0 +1,37 @@
+#!/usr/bin/env python
+
+import hashlib
+import os
+import optparse
+
+def md5(fname):
+    hash_md5 = hashlib.md5()
+    with open(fname, "rb") as f:
+	for chunk in iter(lambda: f.read(2 ** 20), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
+
+usage = "usage: %prog [-d|--delete] directory"
+description = "List duplicate files in \"directory\" or, when the -d option is used, delete the duplicate files"
+parser = optparse.OptionParser(usage=usage, description=description)
+parser.add_option("-d", "--delete", action="store_true", dest="delete", 
+	default=False, help="delete the duplicate files")
+(options, args) = parser.parse_args()
+if len(args) != 1:
+	directory = os.getcwd()
+else:
+	directory = args[0]
+
+hash_list = []
+for dirpath, dirnames, filenames in os.walk(directory):
+    for fn in filenames:
+        fname = os.path.join(dirpath, fn)
+        filehash = md5(fname)
+        if filehash in hash_list:
+			if options.delete:
+				print("Deleting: {}".format(fname))
+				os.unlink(fname)
+			else:
+				print("Duplicate file: {}".format(fname))
+        else:
+            hash_list.append(filehash)
