@@ -12,12 +12,12 @@ typically ~/Downloads.  The files will be named with the Javascript timestamp
 downloaded file contains EXIF information which includes a text description and
 the name of the artist/photographer.
 
-## delDupes
+## deldupes
 
 This Python script will delete duplicate files.  It compares the MD5 hashes of
 the files to identify duplicates.
 
 Usage:
 
-  `delDupes /path/to/files` - list duplicate files<br />
-  `delDupes -d /path/to/files` - delete duplicate files
+  `deldupes /path/to/files` - list duplicate files<br />
+  `deldupes -d /path/to/files` - delete duplicate files
