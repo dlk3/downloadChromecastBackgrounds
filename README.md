@@ -21,3 +21,11 @@ Usage:
 
   `deldupes /path/to/files` - list duplicate files<br />
   `deldupes -d /path/to/files` - delete duplicate files
+
+## store-new
+
+This Python script moves new, unique files from the downloads directory
+to their destination directory.  These directories are set at the top of
+the script.  Files in the downloads directory which duplicate files in
+the destination directory are deleted.  MD5 hases are used to detect
+duplicate files.
