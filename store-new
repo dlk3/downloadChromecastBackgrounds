@@ -2,6 +2,7 @@
 
 import os
 import hashlib
+import shutil
 
 #  Move files in from_dir to to_dir if they don't already exist,
 #  otherwise delete them.
@@ -36,7 +37,7 @@ if __name__ == "__main__":
 					os.unlink(fn)
 				else:
 					print 'Storing {}'.format(fn)
-					os.rename(fn, os.path.join(to_dir, filename))
+					shutil.move(fn, os.path.join(to_dir, filename))
 					hashlist[md5_hash] = os.path.join(to_dir, filename)
 					ctr = ctr + 1
 
