@@ -20,7 +20,7 @@ if __name__ == "__main__":
 	to_dir = os.path.join(os.path.expanduser('~'), 'Pictures/Chromecast Home')
 
 	hashlist = {}
-	print 'Calculating hashes for all files in {}'.format(to_dir)
+	print('Calculating hashes for all files in {}'.format(to_dir))
 	for dirpath, dirnames, filenames in os.walk(to_dir):
 		for filename in filenames:
 			fn = os.path.join(dirpath, filename)
@@ -32,13 +32,13 @@ if __name__ == "__main__":
 			if filename.endswith('.jpg'):
 				fn = os.path.join(dirpath, filename)
 				md5_hash = md5(fn)
-				if hashlist.has_key(md5_hash):
-					print '{} duplicates {}'.format(fn, hashlist[md5_hash])
+				if md5_hash in hashlist:
+					print('{} duplicates {}'.format(fn, hashlist[md5_hash]))
 					os.unlink(fn)
 				else:
-					print 'Storing {}'.format(fn)
+					print('Storing {}'.format(fn))
 					shutil.move(fn, os.path.join(to_dir, filename))
 					hashlist[md5_hash] = os.path.join(to_dir, filename)
 					ctr = ctr + 1
 
-	print 'Stored {} new files'.format(ctr)
+	print('Stored {} new files'.format(ctr))
